@@ -1,13 +1,10 @@
 # Vault
 vault usage examples
-inspired by  ["Hashicorp Vault implementation and usage"] (https://youtu.be/q3Rrup48zlM?si=BYS2r1owGjHTWjJt)
+inspired by  ["Hashicorp Vault implementation and usage"](https://youtu.be/q3Rrup48zlM?si=BYS2r1owGjHTWjJt)
 
-# there is example https://developer.hashicorp.com/vault/tutorials/kubernetes/kubernetes-sidecar 
+There is an example of Vault usage  https://developer.hashicorp.com/vault/tutorials/kubernetes/kubernetes-sidecar 
 
-Hashicorp Vault implementation and usage
-https://youtu.be/q3Rrup48zlM?si=BGtLpzj8sVcXCkRn
-
-Vault set up in Kubernetes
+##Vault set up in Kubernetes
 
 sudo helm repo add hashicorp https://helm.releases.hashicorp.com
 sudo helm repo update
@@ -72,7 +69,7 @@ vault login
 Feed "root_token" value from cluster-keys.json  
 
 
-    Retrieve secrets with Approle 
+  ##  Retrieve secrets with Approle 
 
 14. Enable secret engine:
 vault secrets enable -path=secret kv-v2
@@ -142,8 +139,7 @@ say Python. it requires module hvac
 
 Created appsapp.py
 
-23.
-         Retrieve secrets with Kubernetes
+    ##     Retrieve secrets with Kubernetes
 
 11.Enable kuberntes for Vault
    enter any  pod and enable 
@@ -156,7 +152,6 @@ vault write auth/kubernetes/config \
 token_reviewer_jwt="$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)" \
 kubernetes_host=https://${KUBERNETES_PORT_443_TCP_ADDR}:443 \
 kubernetes_ca_cert=@/var/run/secrets/kubernetes.io/serviceaccount/ca.crt
-
 
 23. Create role called "myapp" . it will use kubernetes service account "app" which will be later created in deployment manifest. Role
 binded to namespace "demo". To this role attached policy 'app' which allows read secrets :
@@ -175,10 +170,10 @@ This is pretty much all required to set kubernetes auth type on Vault
 26. Create manifest with annotations
 
 27. Create 'demo' namespace as we set it somewhere previously
-kubectl create ns demo
+_kubectl create ns demo_
 
 
-Vault encryption services
+## Vault encryption services
 
 28. Enable transit engine: either in UI or 
 kubectl exec -it vault-0 -n vault -- /bin/sh
