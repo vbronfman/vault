@@ -68,8 +68,7 @@ kubectl exec -it vault-0 -- /bin/sh
 vault login 
 Feed "root_token" value from cluster-keys.json  
 
-
-  ##Retrieve secrets with Approle 
+##Retrieve secrets with Approle 
 
 14. Enable secret engine:
 vault secrets enable -path=secret kv-v2
@@ -139,7 +138,7 @@ say Python. it requires module hvac
 
 Created appsapp.py
 
-    ##Retrieve secrets with Kubernetes
+##Retrieve secrets with Kubernetes
 
 11.Enable kuberntes for Vault
    enter any  pod and enable 
